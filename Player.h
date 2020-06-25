@@ -1,4 +1,9 @@
+/*
+Библиотека для работы с главным героем игры Пакман
+Дорофеев Д.Г. ИВТ-13БО
+*/
 #pragma once
+#include"Object.h"
 class Player : public Object
 {
 public:
