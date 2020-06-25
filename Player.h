@@ -4,6 +4,18 @@
 */
 #pragma once
 #include"Object.h"
+enum way
+{
+	up,
+	down,
+	right,
+	left,
+};
+enum mode 
+{
+	classic,
+	power,
+};
 class Player : public Object
 {
 public:
@@ -11,41 +23,30 @@ public:
 	Player();
 	//координата по Х
 	int getX();
-
 	//координата по У
 	int getY();
-
+	//направление движения на данный момент(u/d/r/l)
+	way getDirection();
+	//статус пылесоса(движение/бонусное движение/простой на месте)
+	mode getStatus();
 	//настройка ширины
 	int setWidth();
-
 	//настройка высоты
 	int setHight();
-
-	//статус пылесоса(движение/бонусное движение/простой на месте)
-	int status();
-
 	//изменение статуса(движение/бонусное движение/простой на месте)
-	int changeStatus(int x);
-
+	int setStatus(mode x);
 	//движение вверх
-	int up(int x);
-
+	int muveUp();
 	//движение вниз
-	int down(int x);
-
+	int moveDown();
 	//движение вправо
-	int right(int x);
-
+	int moveRight();
 	//движение в лево
-	int left(int x);
-
-	//направление движения на данный момент(u/d/r/l)
-	char direction();
-
+	int moveLeft(int x);
 private:
 	int x, y;
 	int widht, height;
-	int status;
-	char direction;
+	mode status;
+	way direction;
 };
 

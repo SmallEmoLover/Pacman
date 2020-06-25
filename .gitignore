@@ -1,3 +1,4 @@
 .vs/**
 Pacman.sln
 *.vcxproj*
+.gitignore
