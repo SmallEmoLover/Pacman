@@ -3,14 +3,9 @@
 Ширкунов А.В. ИВТ-13БО
 */
 #pragma once
-//варианты передвижения
-enum CatWay
-{
-	UP,
-	DOWN,
-	RIGHT,
-	LEFT,
-};
+#include "Player.h"
+#include "Object.h"
+
 //режимы врагов
 enum CatMode
 {
@@ -25,21 +20,21 @@ enum CatMode
 };
 class Cats : public Object
 {
-public:
-	//алгоритм преследования
-	void MovesFunction();
-	//координата начала по Х
-	int getX();
-	//координата начала по У
-	int getY();
-	//движение вверх
-	int MoveUp();
-	//движение вниз
-	int MoveDown();
-	//движение вправо
-	int MoveRight();
-	//движение влево
-	int MoveLeft();
+	public:
+		//алгоритм передвижения
+		way AIMove();
+		//координата начала по Х
+		int getX();
+		//координата начала по У
+		int getY();
+		//движение вверх
+		int MoveUp();
+		//движение вниз
+		int MoveDown();
+		//движение вправо
+		int MoveRight();
+		//движение влево
+		int MoveLeft();
 
 	private:
 		//Статус (преследует/убегает/ждет выхода/возвращается на вход)
