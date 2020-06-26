@@ -6,15 +6,15 @@
 #include"Object.h"
 enum way
 {
-	up,
-	down,
-	right,
-	left,
+	UP,
+	DOWN,
+	RIGHT,
+	LEFT,
 };
 enum mode 
 {
-	classic,
-	power,
+	CLASSIC,
+	POWER,
 };
 class Player : public Object
 {
@@ -32,20 +32,18 @@ public:
 	//настройка ширины
 	int setWidth();
 	//настройка высоты
-	int setHight();
+	int setHeight();
 	//изменение статуса(движение/бонусное движение/простой на месте)
 	int setStatus(mode x);
 	//движение вверх
 	int muveUp();
 	//движение вниз
-	int moveDown();
+	int muveDown();
 	//движение вправо
-	int moveRight();
+	int muveRight();
 	//движение в лево
-	int moveLeft(int x);
+	int muveLeft(int x);
 private:
-	int x, y;
-	int widht, height;
 	mode status;
 	way direction;
 };

@@ -5,13 +5,7 @@
 */
 #pragma once
 #include"Object.h"
-enum Way
-{
-	up,
-	down,
-	right,
-	left
-};
+#include"Player.h"
 class Wall : public Object
 {
 public:
@@ -31,8 +25,6 @@ public:
 	//направление стены(u/d/l/r)
 	Way getDirection();
 private:
-	int x, y;
-	int widht, height;
 	int lenght;
 	Way direction;
 };
