@@ -4,6 +4,7 @@
 */
 #pragma once
 #include"Object.h"
+#include"Game.h"
 enum way
 {
 	UP,
@@ -22,19 +23,21 @@ public:
 	//Конструктор по умолчанию
 	Player();
 	//координата по Х
-	int getX();
+	int Object::getX();
 	//координата по У
-	int getY();
+	int Object::getY();
 	//направление движения на данный момент(u/d/r/l)
 	way getDirection();
 	//статус пылесоса(движение/бонусное движение/простой на месте)
 	mode getStatus();
 	//настройка ширины
-	int setWidth();
+	int Object::setWidth();
 	//настройка высоты
-	int setHeight();
+	int Object::setHeight();
+	//изменение направления движения
+	void setDirection(way x);
 	//изменение статуса(движение/бонусное движение/простой на месте)
-	int setStatus(mode x);
+	void setStatus(mode x);
 	//движение вверх
 	int moveUp();
 	//движение вниз
@@ -42,9 +45,13 @@ public:
 	//движение вправо
 	int moveRight();
 	//движение в лево
-	int moveLeft(int x);
+	int moveLeft();
 private:
 	mode status;
 	way direction;
+	int step;
+	int Object::x, y;
+	int Object::height, width;
+	int powerCoefficient;
 };
 
