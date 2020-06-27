@@ -1,6 +1,3 @@
-#include <iostream>  
-#include "Player.h"
-#include "Object.h"
 #include "Rubbish.h"
 
 //координата по Х
