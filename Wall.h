@@ -23,9 +23,9 @@ public:
 	//настройка направления стены
 	int setDirection();
 	//направление стены(u/d/l/r)
-	Way getDirection();
+	way getDirection();
 private:
 	int lenght;
-	Way direction;
+	way direction;
 };
 

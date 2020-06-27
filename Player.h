@@ -36,13 +36,13 @@ public:
 	//изменение статуса(движение/бонусное движение/простой на месте)
 	int setStatus(mode x);
 	//движение вверх
-	int muveUp();
+	int moveUp();
 	//движение вниз
-	int muveDown();
+	int moveDown();
 	//движение вправо
-	int muveRight();
+	int moveRight();
 	//движение в лево
-	int muveLeft(int x);
+	int moveLeft(int x);
 private:
 	mode status;
 	way direction;
