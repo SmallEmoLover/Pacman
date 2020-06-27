@@ -13,7 +13,7 @@ class Object
         virtual int getY() = 0;
         virtual int setWidth() = 0;
         virtual int setHeight() = 0;
-    private:
+    protected:
         //координаты
         int x, y;
         int width, height;
