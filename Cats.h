@@ -10,7 +10,7 @@
 enum CatMode
 {
 	//преследование
-	PURSUIT,
+	CHASE,
 	//побег
 	RUNAWAY,
 	//ожидание выхода
@@ -32,13 +32,13 @@ class Cats : public Object
 		//координата начала по ”
 		int getY();
 		//движение вверх
-		int MoveUp();
+		int MoveUp(int step);
 		//движение вниз
-		int MoveDown();
+		int MoveDown(int step);
 		//движение вправо
-		int MoveRight();
+		int MoveRight(int step);
 		//движение влево
-		int MoveLeft();
+		int MoveLeft(int step);
 
 	private:
 		//—татус (преследует/убегает/ждет выхода/возвращаетс€ на вход)

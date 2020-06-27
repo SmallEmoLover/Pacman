@@ -19,3 +19,23 @@ int Cats::getY()
 {
 	return y;
 }
+
+int Cats::MoveUp(int step)
+{
+	y -= step;
+}
+
+int Cats::MoveDown(int step)
+{
+	y += step;
+}
+
+int Cats::MoveRight(int step)
+{
+	x += step;
+}
+
+int Cats::MoveLeft(int step)
+{
+	x -= step;
+}
