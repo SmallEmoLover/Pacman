@@ -11,21 +11,25 @@ class Wall : public Object
 public:
 	Wall();
 	//координата начала по ’
-	int getX();
+	int Object::getX();
 	//координата начала по ”
-	int getY();
+	int Object::getY();
 	//настройка ширины одного кубика
-	int setWidth();
+	int Object::setWidth();
 	//настройка высоты одного кубика
-	int setHight();
+	int Object::setHeight();
+	//получение длинны стены
+	int getLenght();
 	//настройка длинны стены
-	int setLenght();
+	int setLenght(int x);
 	//настройка направлени€ стены
-	int setDirection();
+	int setDirection(way x);
 	//направление стены(u/d/l/r)
-	Way getDirection();
+	way getDirection();
 private:
+	int Object::x, y;
+	int Object::height, width;
 	int lenght;
-	Way direction;
+	way direction;
 };
 
