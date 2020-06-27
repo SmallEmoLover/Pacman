@@ -23,6 +23,8 @@ class Cats : public Object
 	public:
 		//алгоритм передвижения
 		way AIMove();
+		//Изменить статус (преследует/убегает/ждет выхода/возвращается на вход)
+		CatMode GetStatus();
 		//координата начала по Х
 		int getX();
 		//координата начала по У
@@ -38,5 +40,5 @@ class Cats : public Object
 
 	private:
 		//Статус (преследует/убегает/ждет выхода/возвращается на вход)
-		CatMode GetStatus();
+		CatMode Status();
 };

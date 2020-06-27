@@ -3,14 +3,22 @@
 Ширкунов А.В. ИВТ-13БО
 */
 #pragma once
+#include "Object.h"
+#include"Player.h"
+
 class Rubbish : public Object
 {
 public:
-	//координата начала по Х
+	//координата по Х
 	int getX();
-	//координата начала по У
+	//координата по У
 	int getY();
+	//Значение IsColected (собран элемент/не собран)
+	bool getIsCollected();
+	//Поменять IsColected
+	void setIsCollected(bool value);
 private:
 	//статус (собран/не собран)
-	bool IsCollected();
-}
+	bool IsCollected;
+	int Object::x, y;
+};
