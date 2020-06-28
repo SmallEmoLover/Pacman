@@ -10,14 +10,11 @@ class Game
 {
     public:
         //Инициализация отображения
-        //TODO: Подумать над засовыванием инициализации в конструктор
         void Initialize();
         //Старт игры
         void Start();
         //Пауза
         void Pause();
-        //Продолжение
-        void Resume();
         //Выход
         void Exit();
         int getScreenHeight();

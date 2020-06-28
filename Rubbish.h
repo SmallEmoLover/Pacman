@@ -24,5 +24,4 @@ public:
 private:
 	//������ (������/�� ������)
 	bool IsCollected;
-	int Object::x, y;
 };
