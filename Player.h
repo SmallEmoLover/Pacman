@@ -30,6 +30,10 @@ public:
 	way getDirection();
 	//статус пылесоса(движение/бонусное движение/простой на месте)
 	mode getStatus();
+	//ширина
+	int getWidth();
+	//высота
+	int getHeight();
 	//настройка ширины
 	int setWidth();
 	//настройка высоты

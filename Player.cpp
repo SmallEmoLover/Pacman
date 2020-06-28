@@ -25,15 +25,25 @@ void Player::setDirection(way x)
 	direction = x;
 }
 
+int Player::getHeight()
+{
+	return height;
+}
+
+int Player::getWidth()
+{
+	return width;
+}
+
 int Player::moveLeft()
 {
-	//Если возможно
-	if (x - step/*не занято*/ && status == CLASSIC)
+	//пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+	if (x - step/*пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ*/ && status == CLASSIC)
 	{
 		x -= step;
 		return 1;
 	}
-	if (x - step/*не занято*/ && status == POWER)
+	if (x - step/*пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ*/ && status == POWER)
 	{
 		x -= step * powerCoefficient;
 		return 1;
@@ -42,13 +52,13 @@ int Player::moveLeft()
 }
 int Player::moveRight()
 {
-	//Если возможно
-	if (x + step/*не занято*/ && status == CLASSIC) 
+	//пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+	if (x + step/*пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ*/ && status == CLASSIC) 
 	{
 		x += step;
 		return 1;
 	}
-	if (x + step/*не занято*/ && status == POWER) 
+	if (x + step/*пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ*/ && status == POWER) 
 	{
 		x += step * powerCoefficient;
 		return 1;
@@ -57,13 +67,13 @@ int Player::moveRight()
 }
 int Player::moveUp()
 {
-	//Если возможно
-	if (y + step/*не занято*/ && status == CLASSIC) 
+	//пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+	if (y + step/*пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ*/ && status == CLASSIC) 
 	{
 		y += step;
 		return 1;
 	}
-	if (y + step/*не занято*/ && status == POWER) 
+	if (y + step/*пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ*/ && status == POWER) 
 	{
 		y += step * powerCoefficient;
 		return 1;
@@ -72,13 +82,13 @@ int Player::moveUp()
 }
 int Player::moveDown()
 {
-	//Если возможно
-	if (y - step/*не занято*/ && status == CLASSIC)
+	//пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+	if (y - step/*пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ*/ && status == CLASSIC)
 	{
 		y -= step;
 		return 1;
 	}
-	if (y - step/*не занято*/ && status == POWER) 
+	if (y - step/*пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ*/ && status == POWER) 
 	{
 		y -= step * powerCoefficient;
 		return 1;

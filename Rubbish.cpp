@@ -1,24 +1,34 @@
 #include "Rubbish.h"
 
-//координата по Х
+//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅ
 int Rubbish::getX()
 {
 	return x;
 }
 
-//координата по Х
+//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅ
 int Rubbish::getY()
 {
 	return y;
 }
 
-//Значение IsColected (собран элемент/не собран)
+int Player::getHeight()
+{
+	return height;
+}
+
+int Player::getWidth()
+{
+	return width;
+}
+
+//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ IsColected (пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ/пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ)
 bool Rubbish::getIsCollected()
 {
 	return IsCollected;
 }
 
-//Поменять IsColected
+//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ IsColected
 void Rubbish::setIsCollected(bool value)
 {
 	IsCollected = true;

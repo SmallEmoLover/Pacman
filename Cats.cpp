@@ -20,6 +20,16 @@ int Cats::getY()
 	return y;
 }
 
+int Player::getHeight()
+{
+	return height;
+}
+
+int Player::getWidth()
+{
+	return width;
+}
+
 int Cats::MoveUp(int step)
 {
 	y -= step;
