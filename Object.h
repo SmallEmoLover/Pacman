@@ -11,8 +11,10 @@ class Object
     public:
         virtual int getX() = 0;
         virtual int getY() = 0;
-        virtual void setWidth() = 0;//Думаю стоит добавить принимаемое значение(DaniDori)
-        virtual void setHeight() = 0;
+        virtual void setX(int x);
+        virtual void setY(int y);
+        virtual void setWidth(int width);
+        virtual void setHeight(int height);
     protected:
         //координаты
         int _x, _y;
