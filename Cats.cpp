@@ -2,50 +2,50 @@
 
 CatMode Cats::getStatus()
 {
-	return status;
+	return _status;
 }
 
-void Cats::setStatus(CatMode x)
+void Cats::setStatus(CatMode status)
 {
-	status=x;
+	_status=x;
 }
 
 int Cats::getX()
 {
-	return x;
+	return _x;
 }
 
 int Cats::getY()
 {
-	return y;
+	return _y;
 }
 
 int Player::getHeight()
 {
-	return height;
+	return _height;
 }
 
 int Player::getWidth()
 {
-	return width;
+	return _width;
 }
 
 int Cats::MoveUp(int step)
 {
-	y -= step;
+	_y -= step;
 }
 
 int Cats::MoveDown(int step)
 {
-	y += step;
+	_y += step;
 }
 
 int Cats::MoveRight(int step)
 {
-	x += step;
+	_x += step;
 }
 
 int Cats::MoveLeft(int step)
 {
-	x -= step;
+	_x -= step;
 }

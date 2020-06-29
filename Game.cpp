@@ -9,9 +9,9 @@ void Game::Initialize()
 	else
 	{
         //Инициализация окна
-		GameWindow = SDL_CreateWindow("Pacman", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 
-			 ScreenWidth, ScreenHeight, SDL_WINDOW_SHOWN);
-		if (GameWindow == NULL)
+		_GameWindow = SDL_CreateWindow("Pacman", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 
+			 _ScreenWidth, _ScreenHeight, SDL_WINDOW_SHOWN);
+		if (_GameWindow == NULL)
 			printf("Window creation error - %s", SDL_GetError());
 	}
 }
@@ -74,23 +74,23 @@ void Game::Pause()
 
 SDL_Window* Game::getGameWindow()
 {
-	return GameWindow;
+	return _GameWindow;
 }
 
 int Game::getScreenHeight()
 {
-	return ScreenHeight;
+	return _ScreenHeight;
 }
 
 int Game::getScreenWidth()
 {
-	return ScreenWidth;
+	return _ScreenWidth;
 }
 
 //Очищаем ресурсы
 void Game::Exit()
 {
-	SDL_FreeSurface(SDL_GetWindowSurface(GameWindow));
-	SDL_DestroyWindow(GameWindow);
+	SDL_FreeSurface(SDL_GetWindowSurface(_GameWindow));
+	SDL_DestroyWindow(_GameWindow);
 	SDL_Quit();
 }

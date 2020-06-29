@@ -23,5 +23,5 @@ public:
 	void setIsCollected(bool value);
 private:
 	//������ (������/�� ������)
-	bool IsCollected;
+	bool _IsCollected;
 };

@@ -46,5 +46,5 @@ class Cats : public Object
 
 	private:
 		//������ (����������/�������/���� ������/������������ �� ����)
-		CatMode status;
+		CatMode _status;
 };

@@ -3,33 +3,33 @@
 //���������� �� �
 int Rubbish::getX()
 {
-	return x;
+	return _x;
 }
 
 //���������� �� �
 int Rubbish::getY()
 {
-	return y;
+	return _y;
 }
 
 int Player::getHeight()
 {
-	return height;
+	return _height;
 }
 
 int Player::getWidth()
 {
-	return width;
+	return _width;
 }
 
 //�������� IsColected (������ �������/�� ������)
 bool Rubbish::getIsCollected()
 {
-	return IsCollected;
+	return _IsCollected;
 }
 
 //�������� IsColected
 void Rubbish::setIsCollected(bool value)
 {
-	IsCollected = true;
+	_IsCollected = true;
 }

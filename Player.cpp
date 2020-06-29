@@ -4,8 +4,6 @@ Player::Player()
 	status = CLASSIC;
 	direction = UP;
 	step = 1;
-	x = 0;
-	y = 0;
 	powerCoefficient = 2;
 }
 way Player::getDirection() 

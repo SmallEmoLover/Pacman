@@ -22,13 +22,13 @@ class Game
 		SDL_Window *getGameWindow();
 
     private:
-        int ScreenHeight, ScreenWidth;
+        int _ScreenHeight, _ScreenWidth;
         //Кол-во жизней
-        int Life;
+        int _Life;
         //Кол-во очков
-        int Score;
+        int _Score;
         //Текущий уровень
-        int Level;
+        int _Level;
         //Окно игры
-		SDL_Window* GameWindow;
+		SDL_Window* _GameWindow;
 };
