@@ -2,3 +2,4 @@
 Pacman.sln
 *.vcxproj*
 .gitignore
+x64/
