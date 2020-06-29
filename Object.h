@@ -1,5 +1,5 @@
 /*
-    Абстрактный класс-родитель объектов
+    Класс-родитель объектов
     Пакман
     Кулаков Д.С. ИВТ-13БО
 */
@@ -9,10 +9,10 @@
 class Object
 {
     public:
-        virtual int getX() = 0;
-        virtual int getY() = 0;
-        virtual void setWidth() = 0;//Думаю стоит добавить принимаемое значение(DaniDori)
-        virtual void setHeight() = 0;
+        int getX();
+        int getY();
+        int getWidth();
+        int getHeight();
     protected:
         //координаты
         int _x, _y;
