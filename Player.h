@@ -35,9 +35,9 @@ public:
 	//высота
 	int getHeight();
 	//настройка ширины
-	void setWidth();
+	void setWidth(int width);
 	//настройка высоты
-	void setHeight();
+	void setHeight(int height);
 	//изменение направления движения
 	void setDirection(way x);
 	//изменение статуса(движение/бонусное движение/простой на месте)
@@ -51,9 +51,9 @@ public:
 	//движение в лево
 	int moveLeft();
 private:
-	mode status;
-	way direction;
-	int step;
-	int powerCoefficient;
+	mode _status;
+	way _direction;
+	int _step;
+	int _powerCoefficient;
 };
 

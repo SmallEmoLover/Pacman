@@ -1,14 +1,19 @@
 #include"Wall.h"
-Wall::Wall()
+Wall::Wall(int x, int y, int width, int height, way direction, bool isCorner)
 {
-	direction = UP;
+	_x = x;
+	_y = y;
+	_width = width;
+	_height = height;
+	_direction = direction;
+	_isCorner = isCorner;
 }
 way Wall::getDirection()
 {
-	return direction;
+	return _direction;
 }
-int  Wall::setDirection(way x)
+int  Wall::setDirection(way direction)
 {
-	direction = x;
+	_direction = direction;
 }
 

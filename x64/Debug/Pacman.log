@@ -1,0 +1,7 @@
+﻿  Game.cpp
+C:\Users\DaniDori\source\repos\Game\Pacman\Game.h(7,10): fatal error C1083: Не удается открыть файл включение: SDL.h: No such file or directory,
+  Player.cpp
+C:\Users\DaniDori\source\repos\Game\Pacman\Game.h(7,10): fatal error C1083: Не удается открыть файл включение: SDL.h: No such file or directory,
+  Wall.cpp
+C:\Users\DaniDori\source\repos\Game\Pacman\Game.h(7,10): fatal error C1083: Не удается открыть файл включение: SDL.h: No such file or directory,
+  Создание кода...

@@ -1,49 +1,49 @@
 #include"Player.h"
 Player::Player() 
 {
-	status = CLASSIC;
-	direction = UP;
-	step = 1;
-	powerCoefficient = 2;
+	_status = CLASSIC;
+	_direction = UP;
+	_step = 1;
+	_powerCoefficient = 2;
 }
 way Player::getDirection() 
 {
-	return direction;
+	return _direction;
 }
 mode Player::getStatus()
 {
-	return status;
+	return _status;
 }
-void Player::setStatus(mode x) 
+void Player::setStatus(mode status) 
 {
-	status = x;
+	_status = status;
 }
-void Player::setDirection(way x)
+void Player::setDirection(way direction)
 {
-	direction = x;
+	_direction = direction;
 }
 
 int Player::getHeight()
 {
-	return height;
+	return _height;
 }
 
 int Player::getWidth()
 {
-	return width;
+	return _width;
 }
 
 int Player::moveLeft()
 {
 	//���� ��������
-	if (x - step/*�� ������*/ && status == CLASSIC)
+	if (_x - _step/*�� ������*/ && _status == CLASSIC)
 	{
-		x -= step;
+		_x -= _step;
 		return 1;
 	}
-	if (x - step/*�� ������*/ && status == POWER)
+	if (_x - _step/*�� ������*/ && _status == POWER)
 	{
-		x -= step * powerCoefficient;
+		_x -= _step * _powerCoefficient;
 		return 1;
 	}
 	return 0;
@@ -51,14 +51,14 @@ int Player::moveLeft()
 int Player::moveRight()
 {
 	//���� ��������
-	if (x + step/*�� ������*/ && status == CLASSIC) 
+	if (_x + _step/*�� ������*/ && _status == CLASSIC) 
 	{
-		x += step;
+		_x += _step;
 		return 1;
 	}
-	if (x + step/*�� ������*/ && status == POWER) 
+	if (_x + _step/*�� ������*/ && _status == POWER) 
 	{
-		x += step * powerCoefficient;
+		_x += _step * _powerCoefficient;
 		return 1;
 	}
 	return 0;
@@ -66,14 +66,14 @@ int Player::moveRight()
 int Player::moveUp()
 {
 	//���� ��������
-	if (y + step/*�� ������*/ && status == CLASSIC) 
+	if (_y + _step/*�� ������*/ && _status == CLASSIC) 
 	{
-		y += step;
+		_y += _step;
 		return 1;
 	}
-	if (y + step/*�� ������*/ && status == POWER) 
+	if (_y + _step/*�� ������*/ && _status == POWER) 
 	{
-		y += step * powerCoefficient;
+		_y += _step * _powerCoefficient;
 		return 1;
 	}
 	return 0;
@@ -81,14 +81,14 @@ int Player::moveUp()
 int Player::moveDown()
 {
 	//���� ��������
-	if (y - step/*�� ������*/ && status == CLASSIC)
+	if (_y - _step/*�� ������*/ && _status == CLASSIC)
 	{
-		y -= step;
+		_y -= _step;
 		return 1;
 	}
-	if (y - step/*�� ������*/ && status == POWER) 
+	if (_y - _step/*�� ������*/ && _status == POWER) 
 	{
-		y -= step * powerCoefficient;
+		_y -= _step * _powerCoefficient;
 		return 1;
 	}
 	return 0;

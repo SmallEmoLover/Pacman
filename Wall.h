@@ -9,21 +9,26 @@
 class Wall : public Object
 {
 public:
-	Wall();
+
+	Wall(int x, int y, int width, int height, way direction, bool isCorner);
 	//координата начала по Х
 	int getX();
 	//координата начала по У
 	int getY();
-	//настройка ширины одного кубика
-	void setWidth();
-	//настройка длинны стены
-	int setLenght(int x);
+	//ширина
+	int getWidth();
+	//высота
+	int getHeight();
+	//настройка ширины
+	void setWidth(int width);
+	//настройка высоты
+	void setHeight(int height);
 	//настройка направления стены
 	int setDirection(way x);
 	//направление стены(u/d/l/r)
 	way getDirection();
 private:
-	way direction;
-	bool isCorner;
+	way _direction;
+	bool _isCorner;
 };
 
