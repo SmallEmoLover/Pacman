@@ -101,3 +101,14 @@ void CreateWalls(Wall* walls[68])
 	for (int i = 0; i < 34; i++)
 		walls[i + 34] = MirrorWall(walls[i]);
 }
+
+bool IsWall(int x, int y, Wall* walls[WallCount])
+{
+	for (int i = 0; i < WallCount; i++)
+	{
+		if ((x >= walls[i]->getX()) && (x <= walls[i]->getX() + walls[i]->getWidth())
+			&& (y >= walls[i]->getY()) && (y <= walls[i]->getY() + walls[i]->getHeight()))
+			return true;
+	}
+	return false;
+}
