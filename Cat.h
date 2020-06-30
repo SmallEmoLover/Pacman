@@ -18,7 +18,7 @@ enum CatMode
 	//����������� � ����� ��������
 	RETURN,
 };
-class Cats : public Object
+class Cat : public Object
 {
 	public:
 		//�������� ������������
