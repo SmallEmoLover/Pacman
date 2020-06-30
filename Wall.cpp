@@ -6,7 +6,7 @@ Wall::Wall()
 	_width = 0;
 	_height = 0;
 }
-Wall::Wall(int x, int y, int width, int height, way direction, bool isCorner)
+Wall::Wall(int x, int y, int width, int height)
 {
 	_x = x;
 	_y = y;

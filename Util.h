@@ -6,13 +6,14 @@
 */
 
 #pragma once
+#define WallCount 68
 
 #include "Cat.h"
 #include "Player.h"
 #include "Rubbish.h"
 #include "Wall.h"
 
-#define WallCount 68
+class Cat;
 
 //Столкнулись ли объекты
 bool CollisionDetect(int x11, int x12, int y11, int y12, int x21, int x22, int y21, int y22);

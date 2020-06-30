@@ -3,7 +3,8 @@
 Ширкунов А.В. ИВТ-13БО
 */
 #pragma once
-#include "Player.h"
+
+#include "Wall.h"
 #include "Object.h"
 #include "Util.h"
 
@@ -28,22 +29,14 @@ class Cat : public Object
 		CatMode getStatus();
 		//изменить статус (преследует/убегает/ждет выхода/возвращается к выходу)
 		void setStatus(CatMode x);
-		//координата по X
-		int getX();
-		//координата по У
-		int getY();
-		//ширина
-		int getWidth();
-		//высота
-		int getHeight();
 		//движение вверх
-		int MoveUp(int step);
+		void MoveUp(int step);
 		//движение вниз
-		int MoveDown(int step);
+		void MoveDown(int step);
 		//движение вправо
-		int MoveRight(int step);
+		void MoveRight(int step);
 		//движение влево
-		int MoveLeft(int step);
+		void MoveLeft(int step);
 
 	private:
 		//статус (преследует/убегает/ждет выхода/возвращается к выходу)

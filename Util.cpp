@@ -101,4 +101,3 @@ void CreateWalls(Wall* walls[68])
 	for (int i = 0; i < 34; i++)
 		walls[i + 34] = MirrorWall(walls[i]);
 }
-

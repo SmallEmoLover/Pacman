@@ -3,8 +3,8 @@
 Дорофеев Д.Г. ИВТ-13БО
 */
 #pragma once
-#include"Object.h"
-#include"Game.h"
+#include "Object.h"
+
 enum way
 {
 	UP,
@@ -22,18 +22,10 @@ class Player : public Object
 public:
 	//Конструктор по умолчанию
 	Player();
-	//координата по Х
-	int getX();
-	//координата по У
-	int getY();
 	//направление движения на данный момент(u/d/r/l)
 	way getDirection();
 	//статус пылесоса(движение/бонусное движение/простой на месте)
 	mode getStatus();
-	//ширина
-	int getWidth();
-	//высота
-	int getHeight();
 	//настройка ширины
 	void setWidth(int width);
 	//настройка высоты
@@ -43,13 +35,13 @@ public:
 	//изменение статуса(движение/бонусное движение/простой на месте)
 	void setStatus(mode x);
 	//движение вверх
-	int moveUp();
+	void moveUp();
 	//движение вниз
-	int moveDown();
+	void moveDown();
 	//движение вправо
-	int moveRight();
+	void moveRight();
 	//движение в лево
-	int moveLeft();
+	void moveLeft();
 private:
 	mode _status;
 	way _direction;
