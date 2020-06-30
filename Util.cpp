@@ -22,7 +22,7 @@ bool CollisionDetect(int x11, int x12, int y11, int y12, int x21, int x22, int y
 	return true;
 }
 
-bool CollisionDetect(Player *player, Cats *cat)
+bool CollisionDetect(Player *player, Cat *cat)
 {
 	int x11 = player->getX();
 	int x12 = x11 + player->getWidth();

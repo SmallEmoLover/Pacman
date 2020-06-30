@@ -1,34 +1,34 @@
 #include "Rubbish.h"
 
-//���������� �� �
+//координата по X
 int Rubbish::getX()
 {
 	return _x;
 }
 
-//���������� �� �
+//координата по Y
 int Rubbish::getY()
 {
 	return _y;
 }
 
-int Player::getHeight()
+int Rubbish::getHeight()
 {
 	return _height;
 }
 
-int Player::getWidth()
+int Rubbish::getWidth()
 {
 	return _width;
 }
 
-//�������� IsColected (������ �������/�� ������)
+//возвращает _IsColected (собран элемент/не собран)
 bool Rubbish::getIsCollected()
 {
 	return _IsCollected;
 }
 
-//�������� IsColected
+//изменить _IsColected
 void Rubbish::setIsCollected(bool value)
 {
 	_IsCollected = true;
