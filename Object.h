@@ -5,6 +5,7 @@
 */
 
 #pragma once
+#define PixInBlock 16
 
 class Object
 {

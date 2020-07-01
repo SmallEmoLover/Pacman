@@ -40,8 +40,8 @@ bool CollisionDetect(Object *first, Object *second)
 //Вспомогательная функция отзеркаливания стены по оси Y
 Wall* MirrorWall(Wall* src)
 {
-	Wall* result = new Wall(28 - src->getX() - src->getWidth(), src->getY(),
-		src->getWidth(), src->getHeight());
+	Wall* result = new Wall(28 - (src->getX() + src->getWidth()) / PixInBlock, src->getY() / PixInBlock,
+		src->getWidth() / PixInBlock, src->getHeight() / PixInBlock);
 	return result;
 }
 
@@ -74,18 +74,42 @@ void CreateWalls(Wall* walls[WallCount])
 	walls[23] = new Wall(10, 27, 4, 2);
 	walls[24] = new Wall(13, 29, 1, 3);
 	walls[25] = new Wall(10, 15, 4, 5);
-
 	for (int i = 0; i < 26; i++)
 		walls[i + 26] = MirrorWall(walls[i]);
 }
 
-bool IsWall(int x, int y, Wall* walls[WallCount])
+bool IsWall(Object *object, Wall* walls[WallCount], way direction)
 {
+	//Создадим темповый объект, сместим его на 1 в нужном направлении и проверим на коллизию
+	Player *tmp = new Player();
+	switch (direction)
+	{
+		case UP:
+			tmp->setX(object->getX());
+			tmp->setY(object->getY() - 1);
+			break;
+		case DOWN:
+			tmp->setX(object->getX());
+			tmp->setY(object->getY() + 1);
+			break;
+		case LEFT:
+			tmp->setX(object->getX() - 1);
+			tmp->setY(object->getY());
+			break;
+		case RIGHT:
+			tmp->setX(object->getX() + 1);
+			tmp->setY(object->getY());
+			break;
+	}
+
 	for (int i = 0; i < WallCount; i++)
 	{
-		if ((x >= walls[i]->getX()) && (x < walls[i]->getX() + walls[i]->getWidth())
-			&& (y >= walls[i]->getY()) && (y < walls[i]->getY() + walls[i]->getHeight()))
+		if (CollisionDetect(tmp, walls[i]))
+		{
+			delete tmp;
 			return true;
-	}
+		}
+	} 
+	delete tmp;
 	return false;
 }

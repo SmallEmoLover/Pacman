@@ -14,7 +14,12 @@
 #include "Rubbish.h"
 #include "Wall.h"
 
+//Объявление классы дабы избежать ошибок
 class Cat;
+class Player;
+class Wall;
+class Rubbish;
+enum way;
 
 //Столкнулись ли объекты
 bool CollisionDetect(Object *first, Object *second);
@@ -26,5 +31,5 @@ void CreateWalls(Wall* walls[WallCount]);
 //Расставление собираемых объектов
 Rubbish* CreateRubbish();
 
-//Проверка на то, является ли координата стеной
-bool IsWall(int x, int y, Wall* walls[WallCount]);
+//Есть ли в направлении direction стена вплотную
+bool IsWall(Object *object, Wall* walls[WallCount], way direction);
