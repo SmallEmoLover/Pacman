@@ -113,3 +113,32 @@ bool IsWall(Object *object, Wall* walls[WallCount], way direction)
 	delete tmp;
 	return false;
 }
+
+void CreateRubbish(Wall* walls[WallCount], Rubbish* rubbish[RubbishCount])
+{
+	bool wall = false;
+	int num = 0;
+	Player *player = new Player();
+	for (int x = 1; x < 27; x++)
+	{
+		for (int y = 4; y < 33; y++)
+		{
+			if (x >= 7 && x <= 20 && y >=12 && y <= 22)
+				continue;
+
+			player->setX(x * PixInBlock);
+			player->setY(y * PixInBlock);
+
+			wall = false;
+
+			for (int i = 0; i < WallCount; i++)
+				if (CollisionDetect(player, walls[i]))
+					wall = true;
+			if (!wall)
+			{
+				rubbish[num] = new Rubbish(x, y);
+				num++;
+			}
+		}
+	}
+}

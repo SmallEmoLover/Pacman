@@ -8,13 +8,14 @@
 #pragma once
 
 #define WallCount 52
+#define RubbishCount 256
 
 #include "Cat.h"
 #include "Player.h"
 #include "Rubbish.h"
 #include "Wall.h"
 
-//Объявление классы дабы избежать ошибок
+//Объявление классов дабы избежать ошибок при линковании
 class Cat;
 class Player;
 class Wall;
@@ -29,7 +30,7 @@ bool CollisionDetect(int x11, int x12, int y11, int y12, int x21, int x22, int y
 void CreateWalls(Wall* walls[WallCount]);
 
 //Расставление собираемых объектов
-Rubbish* CreateRubbish();
+void CreateRubbish(Wall* walls[WallCount], Rubbish* rubbish[RubbishCount]);
 
 //Есть ли в направлении direction стена вплотную
 bool IsWall(Object *object, Wall* walls[WallCount], way direction);
