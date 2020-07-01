@@ -90,6 +90,18 @@ void Game::Start()
 	Exit();
 }
 
+SDL_Texture* Game::LoadText(std::string text, TTF_Font *font)
+{
+	SDL_Color color;
+	color.a = 0; 
+	color.b = color.g = color.r = 255;
+	SDL_Surface *srf = TTF_RenderText_Blended(font, text.c_str(), color);
+	SDL_Texture *texture = SDL_CreateTextureFromSurface(_GameRanderer, srf);
+	SDL_FreeSurface(srf);
+
+	return texture;
+}
+
 void Game::ShowObject(Object *object, SDL_Texture *texture, int width, int height)
 {
 	SDL_Rect sizes;
