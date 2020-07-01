@@ -2,9 +2,7 @@
 
 Player::Player() 
 {
-	_status = CLASSIC;
 	_step = 2;
-	_powerCoefficient = 2;
 	_x = 14 * PixInBlock;
 	_y = 26 * PixInBlock;
 	_width = PixInBlock;
@@ -20,49 +18,29 @@ void Player::setY(int y)
 {
 	_y = y;
 }
-mode Player::getStatus()
-{
-	return _status;
-}
-void Player::setStatus(mode status) 
-{
-	_status = status;
-}
 
 void Player::moveLeft()
 {
-	if (_status == CLASSIC)
-		_x -= _step;
-	else
-		_x -= _step * _powerCoefficient;
+	_x -= _step;
 	if (_x < -PixInBlock)
 		_x = 28 * PixInBlock;
 }
 
 void Player::moveRight()
 {
-	if (_status == CLASSIC)
-		_x += _step;
-	else
-		_x += _step * _powerCoefficient;
+	_x += _step;
 	if (_x > 28 * PixInBlock)
 		_x = -PixInBlock;
 }
 
 void Player::moveUp()
 {
-	if (_status == CLASSIC)
-		_y -= _step;
-	else
-		_y -= _step * _powerCoefficient;
+	_y -= _step;
 }
 
 void Player::moveDown()
 {
-	if (_status == CLASSIC)
-		_y += _step;
-	else
-		_y += _step * _powerCoefficient;
+	_y += _step;
 }
 
 void Player::move(Wall *walls[WallCount])

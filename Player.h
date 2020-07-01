@@ -15,23 +15,13 @@ enum way
 	LEFT,
 };
 
-enum mode 
-{
-	CLASSIC,
-	POWER,
-};
-
 class Player : public Object
 {
 	public:
 		//Конструктор по умолчанию
 		Player();
-		//статус пылесоса(движение/бонусное движение/простой на месте)
-		mode getStatus();
 		//изменение направления движения
 		void setDirection(way x);
-		//изменение статуса(движение/бонусное движение/простой на месте)
-		void setStatus(mode x);
 		//настройка Х
 		void setX(int x);
 		//настройка У
@@ -47,9 +37,7 @@ class Player : public Object
 		//функция движения
 		void move(Wall *walls[WallCount]);
 	private:
-		mode _status;
 		way _direction;
 		int _step;
-		int _powerCoefficient;
 };
 
