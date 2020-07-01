@@ -6,7 +6,6 @@ Cat::Cat(int x_block, int y_block)
 	_y = y_block * PixInBlock;
 	_width = PixInBlock;
 	_height = PixInBlock;
-	_status = CHASE; 
 }
 
 void Cat::AIMove(int Px, int Py, int step, Wall* walls[WallCount])
@@ -33,16 +32,6 @@ void Cat::AIMove(int Px, int Py, int step, Wall* walls[WallCount])
 	}
 }
 
-
-CatMode Cat::getStatus()
-{
-	return _status;
-}
-
-void Cat::setStatus(CatMode status)
-{
-	_status = status;
-}
 void Cat::MoveUp(int step)
 {
 	_y -= step;
@@ -61,4 +50,14 @@ void Cat::MoveRight(int step)
 void Cat::MoveLeft(int step)
 {
 	_x -= step;
+}
+
+void Cat::setX(int x)
+{
+	_x = x;
+}
+
+void Cat::setY(int y)
+{
+	_y = y;
 }
