@@ -5,6 +5,7 @@
 */
 
 #include <SDL.h>
+#include "Object.h"
 #include <iostream>
 
 class Game
@@ -25,6 +26,8 @@ class Game
     private:
         //Загрузка текстуры
         SDL_Texture* LoadTexture(std::string BMP_path);
+        //Рендеринг объекта на экран
+        void ShowObject(Object *object, SDL_Texture* texture);
         //Размеры экрана
         int _ScreenHeight, _ScreenWidth;
         //Кол-во жизней

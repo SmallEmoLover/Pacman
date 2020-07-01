@@ -1,4 +1,9 @@
 #include "Game.h"
+#include "Cat.h"
+#include "Wall.h"
+#include "Player.h"
+#include "Util.h"
+#include "Rubbish.h"
 #include <stdio.h>
 
 Game::Game()
@@ -83,6 +88,17 @@ void Game::Start()
 		}
 	}
 	Exit();
+}
+
+void Game::ShowObject(Object *object, SDL_Texture *texture)
+{
+	SDL_Rect sizes;
+	sizes.x = object->getX() * 16;
+	sizes.y = object->getY() * 16;
+	sizes.w = object->getWidth() * 16;
+	sizes.h = object->getHeight() * 16;
+
+	SDL_RenderCopy(_GameRanderer, texture, NULL, &sizes);
 }
 
 void Game::Pause()
