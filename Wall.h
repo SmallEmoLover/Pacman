@@ -12,9 +12,5 @@ public:
 	Wall();
 	//конструктор класса
 	Wall(int x, int y, int width, int height);
-	void setX(int x);
-	void setY(int y);
-	void setWidth(int width);
-	void setHeight(int height);
 };
 

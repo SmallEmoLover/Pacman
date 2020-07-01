@@ -8,9 +8,9 @@ Wall::Wall()
 }
 Wall::Wall(int x, int y, int width, int height)
 {
-	_x = x;
-	_y = y;
-	_width = width;
-	_height = height;
+	_x = x * PixInBlock;
+	_y = y * PixInBlock;
+	_width = width * PixInBlock;
+	_height = height * PixInBlock;
 }
 
