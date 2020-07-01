@@ -20,14 +20,12 @@ class Game
         void Pause();
         //Выход
         void Exit();
-        int getScreenHeight();
-        int getScreenWidth();
 
     private:
         //Загрузка текстуры
         SDL_Texture* LoadTexture(std::string BMP_path);
         //Рендеринг объекта на экран
-        void ShowObject(Object *object, SDL_Texture* texture);
+        void ShowObject(Object *object, SDL_Texture *texture, int width, int height);
         //Размеры экрана
         int _ScreenHeight, _ScreenWidth;
         //Кол-во жизней

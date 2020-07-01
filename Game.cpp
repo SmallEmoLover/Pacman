@@ -90,13 +90,13 @@ void Game::Start()
 	Exit();
 }
 
-void Game::ShowObject(Object *object, SDL_Texture *texture)
+void Game::ShowObject(Object *object, SDL_Texture *texture, int width, int height)
 {
 	SDL_Rect sizes;
-	sizes.x = object->getX() * 16;
-	sizes.y = object->getY() * 16;
-	sizes.w = object->getWidth() * 16;
-	sizes.h = object->getHeight() * 16;
+	sizes.x = object->getX() - ((width - object->getWidth()) / 2);
+	sizes.y = object->getY() - ((height - object->getHeight()) / 2);
+	sizes.w = width;
+	sizes.h = height;
 
 	SDL_RenderCopy(_GameRanderer, texture, NULL, &sizes);
 }
@@ -113,21 +113,6 @@ void Game::Pause()
 		}
 	}
 
-}
-
-SDL_Window* Game::getGameWindow()
-{
-	return _GameWindow;
-}
-
-int Game::getScreenHeight()
-{
-	return _ScreenHeight;
-}
-
-int Game::getScreenWidth()
-{
-	return _ScreenWidth;
 }
 
 //Очищаем ресурсы
