@@ -5,10 +5,13 @@
 */
 
 #include <SDL.h>
+#include "Object.h"
+#include <iostream>
 
 class Game
 {
     public:
+        Game();
         //Инициализация отображения
         void Initialize();
         //Старт игры
@@ -19,9 +22,13 @@ class Game
         void Exit();
         int getScreenHeight();
         int getScreenWidth();
-		SDL_Window *getGameWindow();
 
     private:
+        //Загрузка текстуры
+        SDL_Texture* LoadTexture(std::string BMP_path);
+        //Рендеринг объекта на экран
+        void ShowObject(Object *object, SDL_Texture* texture);
+        //Размеры экрана
         int _ScreenHeight, _ScreenWidth;
         //Кол-во жизней
         int _Life;
@@ -31,4 +38,6 @@ class Game
         int _Level;
         //Окно игры
 		SDL_Window* _GameWindow;
+        //Рендер
+        SDL_Renderer* _GameRanderer;
 };

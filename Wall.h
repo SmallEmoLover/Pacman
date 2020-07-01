@@ -11,7 +11,7 @@ class Wall : public Object
 public:
 	Wall();
 	//конструктор класса
-	Wall(int x, int y, int width, int height, way direction, bool isCorner);
+	Wall(int x, int y, int width, int height);
 	void setX(int x);
 	void setY(int y);
 	void setWidth(int width);
