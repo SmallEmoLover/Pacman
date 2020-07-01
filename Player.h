@@ -22,10 +22,6 @@ class Player : public Object
 public:
 	//Конструктор по умолчанию
 	Player();
-	//координата по Х
-	int getX();
-	//координата по У
-	int getY();
 	//направление движения на данный момент(u/d/r/l)
 	way getDirection();
 	//статус пылесоса(движение/бонусное движение/простой на месте)
@@ -42,6 +38,10 @@ public:
 	void setDirection(way x);
 	//изменение статуса(движение/бонусное движение/простой на месте)
 	void setStatus(mode x);
+	//настройка Х
+	void setX(int x);
+	//настройка У
+	void setY(int y);
 	//движение вверх
 	int moveUp();
 	//движение вниз
@@ -50,6 +50,8 @@ public:
 	int moveRight();
 	//движение в лево
 	int moveLeft();
+	//функция смены направления
+	int move(way direction);
 private:
 	mode _status;
 	way _direction;
