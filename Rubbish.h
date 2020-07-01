@@ -9,6 +9,7 @@
 class Rubbish : public Object
 {
 public:
+	Rubbish(int x_block, int y_block);
 	//�������� IsColected (������ �������/�� ������)
 	bool getIsCollected();
 	//�������� IsColected
