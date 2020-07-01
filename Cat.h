@@ -8,6 +8,8 @@
 #include "Object.h"
 #include "Util.h"
 
+class Wall;
+
 //режимы врагов
 enum CatMode
 {
@@ -20,6 +22,7 @@ enum CatMode
 	//возвращение к выходу
 	RETURN,
 };
+
 class Cat : public Object
 {
 	public:

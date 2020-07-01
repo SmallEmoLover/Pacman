@@ -1,29 +1,29 @@
 #include "Cat.h"
 
-way Cat::AIMove(int Px, int Py, int step, Wall* walls[WallCount])
+void Cat::AIMove(int Px, int Py, int step, Wall* walls[WallCount])
 {
-	if (_x < Px) 
-		if (!IsWall(_x+1, _y, walls))
-			return RIGHT;
-		else if (!IsWall(_x - 1, _y, walls))
-			return LEFT;
-	if (_y < Py)
-		if (!IsWall(_x, _y+1, walls))
-			return DOWN;
-		else if (!IsWall(_x - 1, _y, walls))
-			return UP;
-	if (_x > Px)
-		if (!IsWall(_x - 1, _y, walls))
-			return LEFT;
-		else if (!IsWall(_x + 1, _y, walls))
-			return RIGHT;
-	if (_y > Py)
-		if (!IsWall(_x - 1, _y, walls))
-			return UP;
-		else if (!IsWall(_x, _y + 1, walls))
-			return DOWN;
-
+	if ((_x < Px) && !IsWall(this, walls, RIGHT))
+	{
+		MoveRight(step);
+		return;
+	}
+	if ((_y < Py) && !IsWall(this, walls, DOWN))
+	{
+		MoveDown(step);
+		return;
+	}
+	if ((_x > Px) && !IsWall(this, walls, LEFT))
+	{
+		MoveLeft(step);
+		return;
+	}
+	if ((_y > Py) && !IsWall(this, walls, UP))
+	{
+		MoveUp(step);
+		return;
+	}
 }
+
 
 CatMode Cat::getStatus()
 {
@@ -32,7 +32,7 @@ CatMode Cat::getStatus()
 
 void Cat::setStatus(CatMode status)
 {
-	_status=status;
+	_status = status;
 }
 void Cat::MoveUp(int step)
 {
