@@ -13,8 +13,10 @@ class Cat : public Object
 {
 	public:
 		Cat(int x_block, int y_block);
-		//алгоритм передвижения врага
-		void AIMove(int Px, int Py, int step, Wall* walls[WallCount]);
+		//алгоритм передвижения красного врага
+		void RedMove(int Px, int Py, int step, Wall* walls[WallCount]);
+		//алгоритм передвижения черного врага
+		void BlackMove(int Px, int Py, int step, Wall* walls[WallCount]);
 		//движение вверх
 		void MoveUp(int step);
 		//движение вниз

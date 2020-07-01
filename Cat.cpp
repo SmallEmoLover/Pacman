@@ -8,7 +8,7 @@ Cat::Cat(int x_block, int y_block)
 	_height = PixInBlock;
 }
 
-void Cat::AIMove(int Px, int Py, int step, Wall* walls[WallCount])
+void Cat::RedMove(int Px, int Py, int step, Wall* walls[WallCount])
 {
 	if ((_x < Px) && !IsWall(this, walls, RIGHT))
 	{
@@ -28,6 +28,30 @@ void Cat::AIMove(int Px, int Py, int step, Wall* walls[WallCount])
 	if ((_y > Py) && !IsWall(this, walls, UP))
 	{
 		MoveUp(step);
+		return;
+	}
+}
+
+void Cat::BlackMove(int Px, int Py, int step, Wall* walls[WallCount])
+{
+	if ((_y + 2 < Py) && !IsWall(this, walls, DOWN))
+	{
+		MoveDown(step);
+		return;
+	}
+	if ((_y + 2 > Py) && !IsWall(this, walls, UP))
+	{
+		MoveUp(step);
+		return;
+	}
+	if ((_x + 2 > Px) && !IsWall(this, walls, LEFT))
+	{
+		MoveLeft(step);
+		return;
+	}
+	if ((_x+2 < Px) && !IsWall(this, walls, RIGHT))
+	{
+		MoveRight(step);
 		return;
 	}
 }
