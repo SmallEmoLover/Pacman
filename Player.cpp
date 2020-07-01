@@ -3,9 +3,15 @@
 Player::Player() 
 {
 	_status = CLASSIC;
-	_step = 1;
+	_step = 2;
 	_powerCoefficient = 2;
+	_x = 14 * PixInBlock;
+	_y = 26 * PixInBlock;
+	_width = PixInBlock;
+	_height = PixInBlock;
+	_direction = LEFT;
 }
+
 void Player::setX(int x)
 {
 	_x = x;
@@ -22,21 +28,27 @@ void Player::setStatus(mode status)
 {
 	_status = status;
 }
-//необходимо дописать условия возможности движения
+
 void Player::moveLeft()
 {
 	if (_status == CLASSIC)
 		_x -= _step;
 	else
 		_x -= _step * _powerCoefficient;
+	if (_x < -PixInBlock)
+		_x = 28 * PixInBlock;
 }
+
 void Player::moveRight()
 {
 	if (_status == CLASSIC)
 		_x += _step;
 	else
 		_x += _step * _powerCoefficient;
+	if (_x > 28 * PixInBlock)
+		_x = -PixInBlock;
 }
+
 void Player::moveUp()
 {
 	if (_status == CLASSIC)
@@ -44,6 +56,7 @@ void Player::moveUp()
 	else
 		_y -= _step * _powerCoefficient;
 }
+
 void Player::moveDown()
 {
 	if (_status == CLASSIC)
@@ -51,25 +64,30 @@ void Player::moveDown()
 	else
 		_y += _step * _powerCoefficient;
 }
-int Player::move(way direction)
+
+void Player::move(Wall *walls[WallCount])
 {
-	switch(direction)
+	if (!IsWall(this, walls, _direction))
 	{
-	case UP:
-		while(1)
-			moveUp();
-		break;
-	case DOWN:
-		while (1)
-			moveDown();
-		break;
-	case RIGHT:
-		while (1)
-			moveRight();
-		break;
-	case LEFT:
-		while (1)
-			moveLeft();
-		break;
+		switch (_direction)
+		{
+			case UP:
+				moveUp();
+				break;
+			case DOWN:
+				moveDown();
+				break;
+			case RIGHT:
+				moveRight();
+				break;
+			case LEFT:
+				moveLeft();
+				break;
+		}
 	}
+}
+
+void Player::setDirection(way direction)
+{
+	_direction = direction;
 }
