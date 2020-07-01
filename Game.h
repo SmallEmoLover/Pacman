@@ -1,7 +1,7 @@
 /*
-Основной класс управления игры
-Пакман
-Кулаков Д.С. ИВТ-13БО
+	Основной класс управления игры
+	Пакман
+	Кулаков Д.С. ИВТ-13БО
 */
 
 #include <SDL.h>
@@ -21,8 +21,6 @@ public:
 	void Pause();
 	//Выход
 	void Exit();
-	int getScreenHeight();
-	int getScreenWidth();
 
 private:
 	void ShowObject(Object *object, SDL_Texture *texture, int width, int height);

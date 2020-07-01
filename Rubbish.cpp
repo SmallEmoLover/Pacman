@@ -1,3 +1,8 @@
+/*
+	Реализация класса для работы с собираемыми объектами
+	Ширкунов А.В. ИВТ-13БО
+*/
+
 #include "Rubbish.h"
 
 Rubbish::Rubbish(int x_block, int y_block)

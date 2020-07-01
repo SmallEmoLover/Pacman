@@ -1,3 +1,9 @@
+/*
+	Реализация класса управления игры
+	Пакман
+	Кулаков Д.С. ИВТ-13БО
+*/
+
 #include "Game.h"
 #include <stdio.h>
 #include <SDL_ttf.h>
@@ -34,7 +40,7 @@ void Game::Initialize()
 	SDL_Init(SDL_INIT_VIDEO);
 	//Инициализация окна
 	_GameWindow = SDL_CreateWindow("Pacman", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-	_ScreenWidth, _ScreenHeight, SDL_WINDOW_SHOWN);
+		_ScreenWidth, _ScreenHeight, SDL_WINDOW_SHOWN);
 	//Инициализация рендерера
 	_GameRanderer = SDL_CreateRenderer(_GameWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 	//Инициализация работы со шрифтами
@@ -70,13 +76,13 @@ void Game::Start()
 	Text_rect.w = 20 * PixInBlock;
 	Text_rect.h = 2 * PixInBlock;
 
+	std::string ScoreText;
+
 	//Инициализация расположения жизней
 	SDL_Rect Lives_rect;
 	Lives_rect.y = 34 * PixInBlock;
 	Lives_rect.w = 2 * PixInBlock;
 	Lives_rect.h = 2 * PixInBlock;
-
-	std::string ScoreText;
 
 	//Направление, в которое нужно повернуть в следующем повороте
 	way direction = LEFT;
@@ -252,6 +258,7 @@ void Game::Start()
 		SDL_RenderPresent(_GameRanderer);
 	}
 
+	//Очищаем текстуры перед выходои
 	SDL_DestroyTexture(MapTexture);
 	SDL_DestroyTexture(RedCatTexture);
 	SDL_DestroyTexture(BlackCatTexture);
@@ -298,17 +305,6 @@ void Game::Pause()
 		}
 	}
 
-}
-
-
-int Game::getScreenHeight()
-{
-	return _ScreenHeight;
-}
-
-int Game::getScreenWidth()
-{
-	return _ScreenWidth;
 }
 
 //Очищаем ресурсы

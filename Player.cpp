@@ -1,4 +1,9 @@
-#include"Player.h"
+/*
+	Реализация класса для работы с главным героем игры Пакман
+	Дорофеев Д.Г. ИВТ-13БО
+*/
+
+#include "Player.h"
 
 Player::Player() 
 {
@@ -14,6 +19,7 @@ void Player::setX(int x)
 {
 	_x = x;
 }
+
 void Player::setY(int y)
 {
 	_y = y;

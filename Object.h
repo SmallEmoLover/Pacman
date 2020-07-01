@@ -3,8 +3,9 @@
     Пакман
     Кулаков Д.С. ИВТ-13БО
 */
-
 #pragma once
+
+//Пикселей в блоке
 #define PixInBlock 16
 
 class Object
