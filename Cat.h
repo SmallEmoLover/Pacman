@@ -26,6 +26,7 @@ enum CatMode
 class Cat : public Object
 {
 	public:
+		Cat(int x_block, int y_block);
 		//алгоритм передвижения врага
 		way AIMove(int Px, int Py, int step, Wall* walls[WallCount]);
 		//вернуть статус (преследует/убегает/ждет выхода/возвращается к выходу)  
