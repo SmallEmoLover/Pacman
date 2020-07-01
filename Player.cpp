@@ -6,7 +6,6 @@ Player::Player()
 	_step = 1;
 	_powerCoefficient = 2;
 }
-<<<<<<< HEAD
 void Player::setX(int x)
 {
 	_x = x;
@@ -15,19 +14,14 @@ void Player::setY(int y)
 {
 	_y = y;
 }
-=======
-
->>>>>>> dfd539d1f1bdecdc6ef9c023175332ac6f01d8cc
 mode Player::getStatus()
 {
 	return _status;
 }
-
 void Player::setStatus(mode status) 
 {
 	_status = status;
 }
-
 //необходимо дописать условия возможности движения
 void Player::moveLeft()
 {
@@ -36,7 +30,6 @@ void Player::moveLeft()
 	else
 		_x -= _step * _powerCoefficient;
 }
-
 void Player::moveRight()
 {
 	if (_status == CLASSIC)
@@ -44,7 +37,6 @@ void Player::moveRight()
 	else
 		_x += _step * _powerCoefficient;
 }
-
 void Player::moveUp()
 {
 	if (_status == CLASSIC)
@@ -52,7 +44,6 @@ void Player::moveUp()
 	else
 		_y -= _step * _powerCoefficient;
 }
-
 void Player::moveDown()
 {
 	if (_status == CLASSIC)
