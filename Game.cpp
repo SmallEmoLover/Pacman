@@ -47,10 +47,10 @@ void Game::Start()
 	TTF_Font *font = TTF_OpenFont("textures/font.ttf", 80);
 
 	//Загрузка текстур
-	SDL_Texture *MapTexture = LoadTexture("textures/kover.bmp");
-	SDL_Texture *PlayerTexture = LoadTexture("textures/NormalPlayer.bmp");
-	SDL_Texture *RedCatTexture = LoadTexture("textures/Enemy.bmp");
-	SDL_Texture *BlackCatTexture = LoadTexture("textures/Black.bmp");
+	SDL_Texture *MapTexture = LoadTexture("textures/Background.bmp");
+	SDL_Texture *PlayerTexture = LoadTexture("textures/Player.bmp");
+	SDL_Texture *RedCatTexture = LoadTexture("textures/RedCat.bmp");
+	SDL_Texture *BlackCatTexture = LoadTexture("textures/BlackCat.bmp");
 	SDL_Texture *RubbishTexture = LoadTexture("textures/Rubbish.bmp");
 	SDL_Texture *Text = NULL;
 
