@@ -1,5 +1,14 @@
 #include "Cat.h"
 
+Cat::Cat(int x_block, int y_block)
+{
+	_x = x_block * PixInBlock;
+	_y = y_block * PixInBlock;
+	_width = PixInBlock;
+	_height = PixInBlock;
+	_status = CHASE; 
+}
+
 void Cat::AIMove(int Px, int Py, int step, Wall* walls[WallCount])
 {
 	if ((_x < Px) && !IsWall(this, walls, RIGHT))
