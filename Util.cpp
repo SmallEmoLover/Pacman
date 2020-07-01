@@ -61,45 +61,37 @@ Wall* MirrorWall(Wall* src)
 }
 
 //Карта симметрична, поэтому мы можем создать лишь половину и отзеркалить
-void CreateWalls(Wall* walls[68])
+void CreateWalls(Wall* walls[WallCount])
 {
 	walls[0] = new Wall(13, 3, 1, 5);
 	walls[1] = new Wall(0, 3, 13, 1);
-	walls[2] = new Wall(0, 4, 1, 9);
-	walls[3] = new Wall(1, 12, 5, 1);
-	walls[4] = new Wall(5, 13, 1, 4);
-	walls[5] = new Wall(0, 16, 5, 1);
-	walls[6] = new Wall(0, 16, 5, 1);
-	walls[7] = new Wall(0, 18, 5, 1);
-	walls[8] = new Wall(5, 18, 1, 5);
-	walls[9] = new Wall(0, 22, 5, 1);
-	walls[10] = new Wall(0, 23, 1, 11);
-	walls[11] = new Wall(1, 33, 13, 1);
-	walls[12] = new Wall(1, 27, 2, 2);
-	walls[13] = new Wall(2, 5, 4, 3);
-	walls[14] = new Wall(7, 5, 5, 3);
-	walls[15] = new Wall(2, 9, 4, 2);
-	walls[16] = new Wall(7, 9, 2, 8);
-	walls[17] = new Wall(9, 12, 3, 2);
-	walls[18] = new Wall(10, 9, 4, 2);
-	walls[19] = new Wall(13, 11, 1, 3);
-	walls[20] = new Wall(7, 18, 2, 5);
-	walls[21] = new Wall(10, 21, 4, 2);
-	walls[22] = new Wall(13, 23, 1, 3);
-	walls[23] = new Wall(7, 24, 5, 2);
-	walls[24] = new Wall(2, 24, 4, 2);
-	walls[25] = new Wall(4, 26, 2, 3);
-	walls[26] = new Wall(7, 27, 2, 3);
-	walls[27] = new Wall(2, 30, 10, 2);
-	walls[28] = new Wall(10, 27, 4, 2);
-	walls[29] = new Wall(13, 29, 1, 3);
-	walls[30] = new Wall(10, 15, 3, 1);
-	walls[31] = new Wall(10, 15, 3, 1);
-	walls[32] = new Wall(10, 16, 1, 4);
-	walls[33] = new Wall(11, 19, 3, 1);
+	walls[2] = new Wall(0, 4, 1, 8);
+	walls[3] = new Wall(0, 12, 6, 5);
+	walls[4] = new Wall(0, 18, 6, 5);
+	walls[5] = new Wall(0, 23, 1, 11);
+	walls[6] = new Wall(1, 33, 13, 1);
+	walls[7] = new Wall(1, 27, 2, 2);
+	walls[8] = new Wall(2, 5, 4, 3);
+	walls[9] = new Wall(7, 5, 5, 3);
+	walls[10] = new Wall(2, 9, 4, 2);
+	walls[11] = new Wall(7, 9, 2, 8);
+	walls[12] = new Wall(9, 12, 3, 2);
+	walls[13] = new Wall(10, 9, 4, 2);
+	walls[14] = new Wall(13, 11, 1, 3);
+	walls[15] = new Wall(7, 18, 2, 5);
+	walls[16] = new Wall(10, 21, 4, 2);
+	walls[17] = new Wall(13, 23, 1, 3);
+	walls[18] = new Wall(7, 24, 5, 2);
+	walls[19] = new Wall(2, 24, 4, 2);
+	walls[20] = new Wall(4, 26, 2, 3);
+	walls[21] = new Wall(7, 27, 2, 3);
+	walls[22] = new Wall(2, 30, 10, 2);
+	walls[23] = new Wall(10, 27, 4, 2);
+	walls[24] = new Wall(13, 29, 1, 3);
+	walls[25] = new Wall(10, 15, 4, 5);
 
-	for (int i = 0; i < 34; i++)
-		walls[i + 34] = MirrorWall(walls[i]);
+	for (int i = 0; i < 26; i++)
+		walls[i + 26] = MirrorWall(walls[i]);
 }
 
 bool IsWall(int x, int y, Wall* walls[WallCount])

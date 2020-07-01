@@ -6,7 +6,7 @@
 */
 
 #pragma once
-#define WallCount 68
+#define WallCount 52
 
 #include "Cat.h"
 #include "Player.h"
