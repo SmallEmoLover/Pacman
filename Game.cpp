@@ -1,4 +1,5 @@
 #include "Game.h"
+#include <stdio.h>
 #include <SDL_ttf.h>
 #include <string>
 #include "Util.h"
@@ -44,27 +45,30 @@ void Game::Start()
 {
 	//Загрузка шрифта
 	TTF_Font *font = TTF_OpenFont("textures/font.ttf", 80);
+
 	//Загрузка текстур
 	SDL_Texture *MapTexture = LoadTexture("textures/kover.bmp");
 	SDL_Texture *PlayerTexture = LoadTexture("textures/NormalPlayer.bmp");
-	SDL_Texture *EnemyTexture = LoadTexture("textures/Enemy.bmp");
+	SDL_Texture *RedCatTexture = LoadTexture("textures/Enemy.bmp");
+	SDL_Texture *BlackCatTexture = LoadTexture("textures/Black.bmp");
 	SDL_Texture *RubbishTexture = LoadTexture("textures/Rubbish.bmp");
-	SDL_Texture *Score = NULL;
+	SDL_Texture *Text = NULL;
 
 	//Инициализация игровых объектов
 	Player *player = new Player();
-	Cat *cat = new Cat(14, 14);
+	Cat *redCat = new Cat(9, 14);
+	Cat *blackCat = new Cat(14, 14);
 	Wall *walls[WallCount];
 	CreateWalls(walls);
 	Rubbish *rubbish[RubbishCount];
 	CreateRubbish(walls, rubbish);
 
 	//Инициализация расположения текста
-	SDL_Rect Score_rect;
-	Score_rect.x = 0;
-	Score_rect.y = 0;
-	Score_rect.w = 15 * PixInBlock;
-	Score_rect.h = 2 * PixInBlock;
+	SDL_Rect Text_rect;
+	Text_rect.x = 0;
+	Text_rect.y = 0;
+	Text_rect.w = 20 * PixInBlock;
+	Text_rect.h = 2 * PixInBlock;
 
 	//Инициализация расположения жизней
 	SDL_Rect Lives_rect;
@@ -84,7 +88,22 @@ void Game::Start()
 	bool quit = false;
 	while (quit == false)
 	{
-		Score = LoadText("Score: " + std::to_string(_Score), font);
+		//Красивый счёт
+		int temp = _Score;
+		int rank = 0;
+		while (temp != 0)
+		{
+			temp /= 10;
+			rank++;
+		}
+		ScoreText = "Score ";
+		for (int i = 0; i < 8 - rank; i++)
+			ScoreText += "0";
+		ScoreText += std::to_string(_Score);
+
+		SDL_DestroyTexture(Text);
+		Text = LoadText(ScoreText, font);
+
 		for (int i = 0; i < RubbishCount; i++)
 		{
 			if (rubbish[i]->getIsCollected() == false && CollisionDetect(rubbish[i], player))
@@ -100,11 +119,14 @@ void Game::Start()
 		{
 			_Score += 1000;
 			direction = LEFT;
-			Score = LoadText("Level passed", font);
+			SDL_DestroyTexture(Text);
+			Text = LoadText("Level passed", font);
 
 			//Перемещаем всё на свои места
-			cat->setX(14 * PixInBlock);
-			cat->setY(14 * PixInBlock);
+			redCat->setX(9 * PixInBlock);
+			redCat->setY(14 * PixInBlock);
+			blackCat->setX(14 * PixInBlock);
+			blackCat->setY(14 * PixInBlock);
 			player->setX(14 * PixInBlock);
 			player->setY(26 * PixInBlock);
 			for (int i = 0; i < RubbishCount; i++)
@@ -113,30 +135,34 @@ void Game::Start()
 
 			//Показываем всё
 			SDL_RenderCopy(_GameRanderer, MapTexture, NULL, NULL);
-			SDL_RenderCopy(_GameRanderer, Score, NULL, &Score_rect);
+			SDL_RenderCopy(_GameRanderer, Text, NULL, &Text_rect);
 			for (int i = 0; i < RubbishCount; i++)
 				if (rubbish[i]->getIsCollected() == false)
 					ShowObject(rubbish[i], RubbishTexture, 10, 10);
 			ShowObject(player, PlayerTexture, 32, 32);
-			ShowObject(cat, EnemyTexture, 40, 40);
+			ShowObject(redCat, RedCatTexture, 40, 40);
+			ShowObject(blackCat, BlackCatTexture, 40, 40);
 			SDL_RenderPresent(_GameRanderer);
 
 			Pause();
 		}
 
 		//Если нас задели
-		if (CollisionDetect(player, cat))
+		if (CollisionDetect(player, redCat) || CollisionDetect(player, blackCat))
 		{
 			//Перемещаем всё на свои места
-			cat->setX(14 * PixInBlock);
-			cat->setY(14 * PixInBlock);
+			redCat->setX(9 * PixInBlock);
+			redCat->setY(14 * PixInBlock);
+			blackCat->setX(14 * PixInBlock);
+			blackCat->setY(14 * PixInBlock);
 			player->setX(14 * PixInBlock);
 			player->setY(26 * PixInBlock);
 			direction = LEFT;
+			SDL_DestroyTexture(Text);
 
 			if (_Life == 0)
 			{
-				Score = LoadText("You lose!", font);
+				Text = LoadText("You lose!", font);
 				_Score = 0;
 				_Life = 3;
 				for (int i = 0; i < RubbishCount; i++)
@@ -144,17 +170,18 @@ void Game::Start()
 			}
 			else
 			{
-				Score = LoadText("Press any key", font);
+				Text = LoadText("Press any key", font);
 				_Life--;
 			}
 
 			SDL_RenderCopy(_GameRanderer, MapTexture, NULL, NULL);
-			SDL_RenderCopy(_GameRanderer, Score, NULL, &Score_rect);
+			SDL_RenderCopy(_GameRanderer, Text, NULL, &Text_rect);
 			for (int i = 0; i < RubbishCount; i++)
 				if (rubbish[i]->getIsCollected() == false)
 					ShowObject(rubbish[i], RubbishTexture, 10, 10);
 			ShowObject(player, PlayerTexture, 32, 32);
-			ShowObject(cat, EnemyTexture, 40, 40);
+			ShowObject(redCat, RedCatTexture, 40, 40);
+			ShowObject(blackCat, BlackCatTexture, 40, 40);
 			SDL_RenderPresent(_GameRanderer);
 
 			Pause();
@@ -166,7 +193,8 @@ void Game::Start()
 
 		//Двигаем объекты
 		player->move(walls);
-		cat->AIMove(player->getX(), player->getY(), 2, walls);
+		redCat->RedMove(player->getX(), player->getY(), 2, walls);
+		blackCat->BlackMove(player->getX(), player->getY(), 2, walls);
 
 		//Обрабатываем нажатия на клавиши
 		SDL_Event event;
@@ -189,6 +217,11 @@ void Game::Start()
 						direction = RIGHT;
 						break;
 					case SDLK_ESCAPE:
+						SDL_DestroyTexture(Text);
+						Text = LoadText("Press any key", font);
+						SDL_RenderCopy(_GameRanderer, MapTexture, NULL, NULL);
+						SDL_RenderCopy(_GameRanderer, Text, NULL, &Text_rect);
+						SDL_RenderPresent(_GameRanderer);
 						Pause();
 						break;
 				}
@@ -201,15 +234,16 @@ void Game::Start()
 
 		//Загрузка текстур
 		SDL_RenderCopy(_GameRanderer, MapTexture, NULL, NULL);
-		SDL_RenderCopy(_GameRanderer, Score, NULL, &Score_rect);
+		SDL_RenderCopy(_GameRanderer, Text, NULL, &Text_rect);
 		for (int i = 0; i < RubbishCount; i++)
 			if (rubbish[i]->getIsCollected() == false)
 				ShowObject(rubbish[i], RubbishTexture, 10, 10);
 		ShowObject(player, PlayerTexture, 32, 32);
-		ShowObject(cat, EnemyTexture, 40, 40);
+		ShowObject(redCat, RedCatTexture, 40, 40);
+		ShowObject(blackCat, BlackCatTexture, 40, 40);
 		for (int i = 0; i < _Life; i++)
 		{
-			Lives_rect.x = i * PixInBlock;
+			Lives_rect.x = i * PixInBlock * 1.5;
 			SDL_RenderCopy(_GameRanderer, PlayerTexture, NULL, &Lives_rect);
 		}
 
@@ -217,6 +251,14 @@ void Game::Start()
 		//Рендеринг
 		SDL_RenderPresent(_GameRanderer);
 	}
+
+	SDL_DestroyTexture(MapTexture);
+	SDL_DestroyTexture(RedCatTexture);
+	SDL_DestroyTexture(BlackCatTexture);
+	SDL_DestroyTexture(PlayerTexture);
+	SDL_DestroyTexture(RubbishTexture);
+	SDL_DestroyTexture(Text);
+
 	Exit();
 }
 
@@ -251,7 +293,7 @@ void Game::Pause()
 		SDL_Event event;
 		while (SDL_PollEvent(&event))
 		{
-			if (event.type == SDL_KEYDOWN)
+			if (event.type == SDL_KEYDOWN || event.type == SDL_QUIT)
 				return;
 		}
 	}

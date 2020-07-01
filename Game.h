@@ -1,44 +1,43 @@
 /*
-    Основной класс управления игры
-    Пакман
-    Кулаков Д.С. ИВТ-13БО
+Основной класс управления игры
+Пакман
+Кулаков Д.С. ИВТ-13БО
 */
 
 #include <SDL.h>
 #include <SDL_ttf.h>
-#include "Object.h"
+#include "Wall.h"
 #include <iostream>
 
 class Game
 {
-    public:
-        Game();
-        //Инициализация отображения
-        void Initialize();
-        //Старт игры
-        void Start();
-        //Пауза
-        void Pause();
-        //Выход
-        void Exit();
+public:
+	Game();
+	//Инициализация отображения
+	void Initialize();
+	//Старт игры
+	void Start();
+	//Пауза
+	void Pause();
+	//Выход
+	void Exit();
+	int getScreenHeight();
+	int getScreenWidth();
 
-    private:
-        //Загрузка текстуры
-        SDL_Texture* LoadTexture(std::string BMP_path);
-        //Рендеринг объекта на экран
-        void ShowObject(Object *object, SDL_Texture *texture, int width, int height);
-        //Загрузка текста
-	    SDL_Texture* LoadText(std::string text, TTF_Font *font);
-        //Размеры экрана
-        int _ScreenHeight, _ScreenWidth;
-        //Кол-во жизней
-        int _Life;
-        //Кол-во очков
-        int _Score;
-        //Текущий уровень
-        int _Level;
-        //Окно игры
-		SDL_Window* _GameWindow;
-        //Рендер
-        SDL_Renderer* _GameRanderer;
+private:
+	void ShowObject(Object *object, SDL_Texture *texture, int width, int height);
+	//Загрузка текстуры
+	SDL_Texture* LoadTexture(std::string BMP_path);
+	//Загрузка текста
+	SDL_Texture* LoadText(std::string text, TTF_Font *font);
+	//Размеры экрана
+	int _ScreenHeight, _ScreenWidth;
+	//Кол-во жизней
+	int _Life;
+	//Кол-во очков
+	int _Score;
+	//Окно игры
+	SDL_Window* _GameWindow;
+	//Рендер
+	SDL_Renderer* _GameRanderer;
 };

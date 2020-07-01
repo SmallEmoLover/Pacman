@@ -18,5 +18,5 @@ bool Rubbish::getIsCollected()
 //изменить _IsColected
 void Rubbish::setIsCollected(bool value)
 {
-	_IsCollected = true;
+	_IsCollected = value;
 }
