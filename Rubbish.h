@@ -9,14 +9,6 @@
 class Rubbish : public Object
 {
 public:
-	//���������� �� �
-	int getX();
-	//���������� �� �
-	int getY();
-	//ширина
-	int getWidth();
-	//высота
-	int getHeight();
 	//�������� IsColected (������ �������/�� ������)
 	bool getIsCollected();
 	//�������� IsColected
