@@ -169,6 +169,7 @@ void Game::Start()
 			if (_Life == 0)
 			{
 				Text = LoadText("You lose!", font);
+				RubbishLeft = RubbishCount;
 				_Score = 0;
 				_Life = 3;
 				for (int i = 0; i < RubbishCount; i++)
